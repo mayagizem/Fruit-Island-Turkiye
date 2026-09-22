@@ -1,0 +1,339 @@
+/*Maya Celikcan */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+    --cream: #f5eedc;
+    --green: #294936;
+    --red: #c94a45;
+    --white: #ffffff;
+}
+
+
+body {
+    background-color: var(--cream);
+    color: var(--green);
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+}
+
+
+.page-grid {
+    width: 92%;
+    max-width: 1200px;
+    margin: 30px auto;
+
+    display: grid;
+
+    grid-template-columns: 3fr 1fr;
+
+    grid-template-areas:
+        "header header"
+        "main aside"
+        "footer footer";
+
+    gap: 24px;
+}
+
+
+header {
+    grid-area: header;
+
+    background-color: var(--green);
+    color: var(--cream);
+
+    padding: 55px 40px;
+
+    border-radius: 18px;
+}
+
+
+.header-content {
+    max-width: 750px;
+}
+
+
+.eyebrow {
+    color: var(--red);
+
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+
+/* Decorative heading font */
+h1,
+h2,
+h3 {
+    font-family: "DM Serif Display", serif;
+}
+
+
+h1 {
+    font-size: 3.8rem;
+    line-height: 1.05;
+    margin-bottom: 12px;
+}
+
+
+.subtitle {
+    font-size: 1.1rem;
+    max-width: 600px;
+}
+
+
+/* -----------------------------------
+   MAIN CONTENT
+----------------------------------- */
+
+main {
+    grid-area: main;
+}
+
+
+.gallery-intro {
+    margin-bottom: 24px;
+}
+
+
+.gallery-intro h2 {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+
+.gallery-intro p {
+    max-width: 700px;
+}
+
+
+.gallery {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 22px;
+}
+
+
+/* Each gallery card takes about half
+   the available width on desktop. */
+
+.character-card {
+    background-color: var(--white);
+
+    flex: 1 1 calc(50% - 22px);
+
+    min-width: 250px;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Adds a small interactive effect
+   when the user hovers over a card. */
+
+.character-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+}
+
+
+/* Makes all character images display
+   consistently inside the gallery. */
+
+.character-card img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+}
+
+
+.character-card figcaption {
+    padding: 18px;
+}
+
+
+.character-card h3 {
+    color: var(--red);
+
+    font-size: 1.6rem;
+
+    margin-bottom: 6px;
+}
+
+
+.character-card p {
+    font-size: 0.92rem;
+}
+
+
+aside {
+    grid-area: aside;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+.about-box,
+.style-box {
+    background-color: var(--green);
+
+    color: var(--cream);
+
+    padding: 25px;
+
+    border-radius: 16px;
+}
+
+
+.about-box h2,
+.style-box h2 {
+    color: var(--white);
+
+    font-size: 1.65rem;
+
+    margin-bottom: 12px;
+}
+
+
+.about-box p,
+.style-box p {
+    margin-bottom: 14px;
+}
+
+
+.about-box p:last-child,
+.style-box p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* -----------------------------------
+   FOOTER
+----------------------------------- */
+
+footer {
+    grid-area: footer;
+
+    background-color: var(--red);
+
+    color: var(--white);
+
+    text-align: center;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    font-size: 0.9rem;
+}
+
+
+@media (max-width: 900px) {
+
+    .page-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .character-card {
+        flex: 1 1 100%;
+    }
+}
+
+
+
+@media (max-width: 700px) {
+
+    .page-grid {
+        width: 94%;
+
+        margin: 16px auto;
+
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "header"
+            "main"
+            "aside"
+            "footer";
+
+        gap: 18px;
+    }
+
+
+    header {
+        padding: 38px 25px;
+    }
+
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+
+    /* On small screens, each gallery
+       card takes the full width. */
+
+    .character-card {
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+
+
+    .gallery-intro h2 {
+        font-size: 1.9rem;
+    }
+
+    .social-links {
+        margin-top: 10px;
+    }
+
+    .social-links a {
+        color: var(--white);
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: 500;
+    }
+
+    .social-links a:hover {
+        text-decoration: underline;
+    }
+
+}
